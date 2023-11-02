@@ -3,10 +3,12 @@ import { Item } from '../../types/Item'
 import { TableItem } from '../TableItem'
 
 type Props = {
-    list: Item[]
+    list: Item[];
+    setList: (list: Item[]) => void;
+    setFilteredList: (list: Item[]) => void;
 }
 
-export const TableArea = ({ list }: Props) => {
+export const TableArea = ({ list, setList, setFilteredList }: Props) => {
     return (
         <C.Table>
             <thead>
@@ -19,7 +21,7 @@ export const TableArea = ({ list }: Props) => {
             </thead>
             <tbody>
                 {list.map((item, index) => (
-                    <TableItem key={index} item={item} />
+                        <TableItem key={index} index={index} item={item} list={list} setList={setList} setFilteredList={setFilteredList}/>
                 ))}
             </tbody>
         </C.Table>
