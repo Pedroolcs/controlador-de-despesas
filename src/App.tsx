@@ -62,7 +62,7 @@ const App = () => {
 
         <InputArea onAdd={handleAddItem}/>
 
-        <TableArea list={filteredList} />
+        <TableArea list={filteredList} setFilteredList={setFilteredList} setList={setList}/>
 
       </C.Body>
     </C.Container>
